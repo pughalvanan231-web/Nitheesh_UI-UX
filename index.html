@@ -1,0 +1,2861 @@
+<<<<<<< HEAD
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Nitheesh Kumar S &mdash; Full Stack Developer &amp; Designer
+        </title>
+        <meta
+            name="description"
+            content="Portfolio of Nitheesh Kumar S &mdash; building intelligent systems with modern web technologies"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+        <style>
+            *,
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                font-family:
+                    "Inter",
+                    "General Sans",
+                    system-ui,
+                    -apple-system,
+                    sans-serif;
+                background: #0a0a0a;
+                color: #ffffff;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            ::selection {
+                background: rgba(255, 255, 255, 0.2);
+                color: #fff;
+            }
+            ::-webkit-scrollbar {
+                width: 6px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #0a0a0a;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.06);
+                border-radius: 3px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: rgba(255, 255, 255, 0.12);
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+            button {
+                cursor: pointer;
+                font-family: inherit;
+            }
+
+            /* LENIS */
+            /* CURSOR GLOW */
+            #cursorGlow {
+                position: fixed;
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                background: radial-gradient(
+                    circle,
+                    rgba(255, 255, 255, 0.15),
+                    transparent 70%
+                );
+                pointer-events: none;
+                z-index: 9998;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+                transition: opacity 0.6s ease;
+            }
+            #cursorGlow.visible {
+                opacity: 1;
+            }
+
+            /* GRADIENT MESH */
+            #meshBg {
+                position: fixed;
+                inset: 0;
+                z-index: 0;
+                pointer-events: none;
+                overflow: hidden;
+            }
+            .mesh-orb {
+                position: absolute;
+                border-radius: 50%;
+                filter: blur(120px);
+                opacity: 0.06;
+            }
+            .mesh-orb:nth-child(1) {
+                width: 600px;
+                height: 600px;
+                background: radial-gradient(circle, #fff, transparent 70%);
+                top: -20%;
+                left: -15%;
+                animation: meshDrift1 60s ease-in-out infinite;
+            }
+            .mesh-orb:nth-child(2) {
+                width: 500px;
+                height: 500px;
+                background: radial-gradient(circle, #818cf8, transparent 70%);
+                bottom: -15%;
+                right: -10%;
+                animation: meshDrift2 50s ease-in-out infinite;
+            }
+            .mesh-orb:nth-child(3) {
+                width: 400px;
+                height: 400px;
+                background: radial-gradient(circle, #fff, transparent 70%);
+                top: 50%;
+                left: 60%;
+                animation: meshDrift3 45s ease-in-out infinite;
+            }
+            @keyframes meshDrift1 {
+                0%,
+                100% {
+                    transform: translate(0, 0) scale(1);
+                }
+                33% {
+                    transform: translate(80px, -60px) scale(1.15);
+                }
+                66% {
+                    transform: translate(-40px, 50px) scale(0.9);
+                }
+            }
+            @keyframes meshDrift2 {
+                0%,
+                100% {
+                    transform: translate(0, 0) scale(1);
+                }
+                33% {
+                    transform: translate(-60px, 40px) scale(1.1);
+                }
+                66% {
+                    transform: translate(50px, -30px) scale(0.95);
+                }
+            }
+            @keyframes meshDrift3 {
+                0%,
+                100% {
+                    transform: translate(0, 0) scale(1);
+                }
+                33% {
+                    transform: translate(40px, 60px) scale(1.05);
+                }
+                66% {
+                    transform: translate(-60px, -40px) scale(0.9);
+                }
+            }
+
+            /* PARTICLES */
+            #particles {
+                position: fixed;
+                inset: 0;
+                z-index: 0;
+                pointer-events: none;
+            }
+
+            /* NOISE OVERLAY */
+            #noise {
+                position: fixed;
+                inset: 0;
+                z-index: 1;
+                pointer-events: none;
+                opacity: 0.02;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+                background-repeat: repeat;
+                background-size: 180px 180px;
+            }
+
+            /* LAYOUT */
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 2rem;
+                position: relative;
+                z-index: 2;
+            }
+            section {
+                padding: 8rem 0;
+                position: relative;
+                z-index: 2;
+            }
+            .section-marker {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.7rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                color: #fff;
+                margin-bottom: 1rem;
+                padding: 0.35rem 1rem;
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 100px;
+                background: rgba(255, 255, 255, 0.035);
+            }
+            .section-marker span {
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: #fff;
+            }
+            .section-title {
+                font-size: clamp(2rem, 3vw, 48px);
+                font-weight: 700;
+                letter-spacing: -1.5px;
+                line-height: 1.2;
+                margin-bottom: 0.75rem;
+            }
+            .section-title em {
+                font-style: normal;
+                color: #fff;
+            }
+            .section-sub {
+                font-size: clamp(0.95rem, 1.2vw, 18px);
+                color: #a1a1aa;
+                max-width: 560px;
+                line-height: 1.6;
+                margin-bottom: 3rem;
+            }
+            .section-header {
+                margin-bottom: 4rem;
+            }
+
+            /* REVEAL */
+            .reveal {
+                opacity: 0;
+                transform: translateY(40px);
+                transition:
+                    opacity 1s cubic-bezier(0.23, 1, 0.32, 1),
+                    transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+            .reveal.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .reveal-d1 {
+                transition-delay: 0.1s;
+            }
+            .reveal-d2 {
+                transition-delay: 0.2s;
+            }
+            .reveal-d3 {
+                transition-delay: 0.3s;
+            }
+            .reveal-d4 {
+                transition-delay: 0.4s;
+            }
+            .reveal-d5 {
+                transition-delay: 0.5s;
+            }
+            .reveal-d6 {
+                transition-delay: 0.6s;
+            }
+            .reveal-d7 {
+                transition-delay: 0.7s;
+            }
+            .reveal-d8 {
+                transition-delay: 0.8s;
+            }
+
+            /* CARDS */
+            .card {
+                background: #111111;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                border-radius: 24px;
+                padding: 2rem;
+                transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+                position: relative;
+                overflow: hidden;
+            }
+            .card:hover {
+                transform: translateY(-6px);
+                box-shadow:
+                    0 16px 48px rgba(0, 0, 0, 0.3),
+                    0 0 0 1px rgba(255, 255, 255, 0.08);
+            }
+
+            /* BUTTONS */
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.6rem;
+                padding: 0.85rem 2rem;
+                border-radius: 12px;
+                font-size: 0.9rem;
+                font-weight: 600;
+                transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+                border: none;
+                position: relative;
+                overflow: hidden;
+                white-space: nowrap;
+                min-height: 48px;
+            }
+            .btn-primary {
+                background: #fff;
+                color: #0a0a0a;
+                box-shadow: 0 4px 20px rgba(255, 255, 255, 0.25);
+            }
+            .btn-primary:hover {
+                color: #0a0a0a;
+                background: #e8e8e8;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 32px rgba(255, 255, 255, 0.35);
+            }
+            .btn-secondary {
+                background: #111111;
+                color: #fff;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .btn-secondary:hover {
+                background: #1a1a1a;
+                border-color: rgba(255, 255, 255, 0.3);
+                transform: translateY(-2px);
+            }
+
+            /* ===== HERO ===== */
+            .hero {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                position: relative;
+                overflow: hidden;
+            }
+            .hero-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                align-items: center;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 2rem;
+                position: relative;
+                z-index: 2;
+                width: 100%;
+            }
+            .hero-left {
+                opacity: 0;
+                transform: translateY(40px);
+                animation: heroIn 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.3s
+                    forwards;
+            }
+            .hero-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.75rem;
+                color: #a1a1aa;
+                padding: 0.4rem 1rem;
+                border: 1px solid rgba(255, 255, 255, 0.06);
+                border-radius: 100px;
+                margin-bottom: 1.5rem;
+            }
+            .hero-badge .dot {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: #22c55e;
+            }
+            .hero-title {
+                font-size: clamp(2.75rem, 5.5vw, 80px);
+                font-weight: 800;
+                letter-spacing: -3px;
+                line-height: 1.05;
+                margin-bottom: 0.5rem;
+            }
+            .hero-title .grad {
+                background: linear-gradient(135deg, #fff 50%, #fff);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            .hero-role-wrap {
+                height: 2.8rem;
+                overflow: hidden;
+                margin-bottom: 1.5rem;
+            }
+            .hero-role {
+                font-size: clamp(1.1rem, 1.8vw, 22px);
+                color: #a1a1aa;
+                font-weight: 500;
+            }
+            .hero-role .cursor-accent {
+                color: #fff;
+                animation: blink 1s step-end infinite;
+            }
+            @keyframes blink {
+                0%,
+                100% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0;
+                }
+            }
+            .hero-desc {
+                font-size: clamp(1rem, 1.2vw, 18px);
+                color: #a1a1aa;
+                max-width: 480px;
+                line-height: 1.6;
+                margin-bottom: 2rem;
+            }
+            .hero-actions {
+                display: flex;
+                gap: 0.75rem;
+                flex-wrap: wrap;
+            }
+            .hero-right {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                opacity: 0;
+                transform: translateY(40px);
+                animation: heroIn 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.6s
+                    forwards;
+            }
+            @keyframes heroIn {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .hero-image-wrap {
+                position: relative;
+                width: 340px;
+                height: 340px;
+            }
+            .hero-image-glow {
+                position: absolute;
+                width: 420px;
+                height: 420px;
+                border-radius: 50%;
+                background: radial-gradient(
+                    circle,
+                    rgba(255, 255, 255, 0.15),
+                    transparent 70%
+                );
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                filter: blur(40px);
+                pointer-events: none;
+                transition: transform 0.3s ease;
+            }
+            .hero-image-frame {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                overflow: hidden;
+                border: 2px solid rgba(255, 255, 255, 0.08);
+                position: relative;
+            }
+            .hero-image-frame img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+            .hero-image-ring {
+                position: absolute;
+                inset: -12px;
+                border-radius: 50%;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                animation: spin 30s linear infinite;
+            }
+            .hero-image-ring::before {
+                content: "\f817";
+                font-family: "Font Awesome 6 Free";
+                font-weight: 900;
+                position: absolute;
+                top: -8px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 10px;
+                color: #fff;
+            }
+            @keyframes spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .scroll-indicator {
+                position: absolute;
+                bottom: 2rem;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                opacity: 0;
+                animation: fadeUp 0.8s ease 2s forwards;
+            }
+            .scroll-indicator.hidden {
+                opacity: 0;
+            }
+            .scroll-line {
+                width: 1px;
+                height: 36px;
+                background: linear-gradient(180deg, #fff, transparent);
+                animation: scrollAnim 2s ease-out infinite;
+            }
+            @keyframes scrollAnim {
+                0% {
+                    transform: scaleY(0);
+                    transform-origin: top;
+                }
+                50% {
+                    transform: scaleY(1);
+                    transform-origin: top;
+                }
+                50.1% {
+                    transform: scaleY(1);
+                    transform-origin: bottom;
+                }
+                100% {
+                    transform: scaleY(0);
+                    transform-origin: bottom;
+                }
+            }
+            .scroll-text {
+                font-size: 0.6rem;
+                color: #a1a1aa;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                font-weight: 500;
+            }
+            @keyframes fadeUp {
+                to {
+                    opacity: 1;
+                }
+            }
+
+            /* ===== ABOUT BENTO ===== */
+            .bento-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                align-items: stretch;
+            }
+            .bento-left {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .bento-right {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .bento-card {
+                background: #111111;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                border-radius: 24px;
+                padding: 2rem;
+                transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            }
+            .bento-card:hover {
+                transform: translateY(-4px);
+                box-shadow:
+                    0 12px 40px rgba(0, 0, 0, 0.25),
+                    0 0 0 1px rgba(255, 255, 255, 0.06);
+            }
+            .bento-card.story {
+                flex: 1;
+            }
+            .bento-card.stats-row {
+                flex-shrink: 0;
+            }
+            .bento-card .card-label {
+                font-size: 0.7rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                color: #fff;
+                margin-bottom: 0.75rem;
+            }
+            .story-text {
+                font-size: clamp(0.95rem, 1.1vw, 18px);
+                color: #a1a1aa;
+                line-height: 1.7;
+                margin-bottom: 1rem;
+            }
+            .story-text:last-child {
+                margin-bottom: 0;
+            }
+            .story-text strong {
+                color: #fff;
+                font-weight: 600;
+            }
+            .stats-inner {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+            .stat-item {
+                text-align: center;
+                padding: 0.75rem;
+            }
+            .stat-num {
+                font-size: 2rem;
+                font-weight: 700;
+                color: #fff;
+                line-height: 1.2;
+            }
+            .stat-num span {
+                color: #fff;
+            }
+            .stat-label {
+                font-size: 0.7rem;
+                color: #a1a1aa;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-top: 0.25rem;
+            }
+            .skills-mini {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin-top: 0.5rem;
+            }
+            .skills-mini span {
+                padding: 0.35rem 0.85rem;
+                border-radius: 100px;
+                font-size: 0.78rem;
+                font-weight: 500;
+                background: rgba(255, 255, 255, 0.03);
+                color: #a1a1aa;
+                border: 1px solid rgba(255, 255, 255, 0.06);
+                transition: all 0.3s ease;
+            }
+            .skills-mini span:hover {
+                background: rgba(255, 255, 255, 0.06);
+                border-color: rgba(255, 255, 255, 0.15);
+                color: #fff;
+            }
+            .bento-extra {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            .bento-extra i {
+                color: #fff;
+                font-size: 1.25rem;
+                width: 44px;
+                height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.06);
+                flex-shrink: 0;
+            }
+            .bento-extra p {
+                font-size: 0.95rem;
+                color: #a1a1aa;
+                line-height: 1.6;
+            }
+
+            /* ===== SKILLS ===== */
+            .skills-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 1rem;
+            }
+            .skill-card {
+                background: #111111;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                border-radius: 20px;
+                padding: 1.5rem;
+                transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            }
+            .skill-card:hover {
+                transform: translateY(-4px);
+                border-color: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            }
+            .skill-category {
+                font-size: 0.7rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                color: #fff;
+                margin-bottom: 1rem;
+            }
+            .skill-item {
+                margin-bottom: 0.85rem;
+            }
+            .skill-item:last-child {
+                margin-bottom: 0;
+            }
+            .skill-head {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 0.35rem;
+            }
+            .skill-name {
+                font-size: 0.82rem;
+                font-weight: 500;
+                color: #fff;
+            }
+            .skill-pct {
+                font-size: 0.72rem;
+                color: #fff;
+                font-weight: 600;
+            }
+            .skill-track {
+                height: 4px;
+                border-radius: 2px;
+                background: rgba(255, 255, 255, 0.03);
+                overflow: hidden;
+            }
+            .skill-fill {
+                height: 100%;
+                border-radius: 2px;
+                width: 0;
+                background: #fff;
+                transition: width 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+            .skill-fill.animated {
+                width: var(--w);
+            }
+
+            /* ===== PROJECTS - FLIP CARDS ===== */
+            .flip-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+            .flip-card {
+                perspective: 1200px;
+                height: 380px;
+            }
+            .flip-card-inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+                transform-style: preserve-3d;
+            }
+            .flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+            .flip-front,
+            .flip-back {
+                position: absolute;
+                inset: 0;
+                border-radius: 24px;
+                backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+                display: flex;
+                flex-direction: column;
+                padding: 2rem;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .flip-front {
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                overflow: hidden;
+            }
+            .flip-front .flip-icon {
+                font-size: 4rem;
+                margin-bottom: 1.25rem;
+                opacity: 0.6;
+            }
+            .flip-front .flip-cat {
+                font-size: 0.8rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                color: rgba(255, 255, 255, 0.5);
+                margin-bottom: 0.5rem;
+            }
+            .flip-front .flip-title {
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: #fff;
+                letter-spacing: -0.5px;
+            }
+            .flip-front .flip-hint {
+                position: absolute;
+                bottom: 1.25rem;
+                font-size: 0.7rem;
+                color: rgba(255, 255, 255, 0.3);
+                letter-spacing: 2px;
+                text-transform: uppercase;
+            }
+            .flip-back {
+                transform: rotateY(180deg);
+                background: #111111;
+                justify-content: space-between;
+            }
+            .flip-back .flip-cat {
+                font-size: 0.75rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                color: #fff;
+                margin-bottom: 0.35rem;
+            }
+            .flip-back .flip-title {
+                font-size: 1.2rem;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+            }
+            .flip-back .flip-desc {
+                font-size: 0.95rem;
+                color: #a1a1aa;
+                line-height: 1.65;
+                margin-bottom: 0.75rem;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .flip-back .flip-stack span {
+                padding: 0.25rem 0.6rem;
+                border-radius: 100px;
+                font-size: 0.7rem;
+                font-weight: 500;
+                background: rgba(255, 255, 255, 0.06);
+                color: #a1a1aa;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .flip-back .flip-actions .btn {
+                padding: 0.55rem 1.1rem;
+                font-size: 0.8rem;
+                min-height: 38px;
+            }
+
+            /* ===== TIMELINE ===== */
+            .timeline {
+                position: relative;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            .timeline-track {
+                position: absolute;
+                left: 32px;
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background: linear-gradient(180deg, #fff, transparent);
+                transform: scaleY(0);
+                transform-origin: top;
+                transition: transform 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+            .timeline-track.visible {
+                transform: scaleY(1);
+            }
+            .timeline-item {
+                position: relative;
+                padding-left: 4rem;
+                padding-bottom: 2.5rem;
+            }
+            .timeline-item:last-child {
+                padding-bottom: 0;
+            }
+            .timeline-dot {
+                position: absolute;
+                left: 24px;
+                top: 0.5rem;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                background: #0a0a0a;
+                border: 3px solid #fff;
+                box-shadow:
+                    0 0 0 4px rgba(255, 255, 255, 0.1),
+                    0 0 20px rgba(255, 255, 255, 0.15);
+                z-index: 2;
+            }
+            .timeline-card {
+                background: #111111;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                border-radius: 20px;
+                padding: 1.5rem 2rem;
+                border-left: 2px solid #fff;
+                transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            }
+            .timeline-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+            }
+            .timeline-date {
+                font-size: 0.7rem;
+                color: #fff;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                margin-bottom: 0.35rem;
+                font-weight: 500;
+            }
+            .timeline-role {
+                font-size: 1.1rem;
+                font-weight: 600;
+                margin-bottom: 0.15rem;
+            }
+            .timeline-org {
+                font-size: 0.85rem;
+                color: #a1a1aa;
+                margin-bottom: 0.5rem;
+            }
+            .timeline-fts {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+                margin-top: 0.5rem;
+            }
+            .timeline-fts li {
+                display: flex;
+                align-items: flex-start;
+                gap: 0.5rem;
+                font-size: 0.85rem;
+                color: #a1a1aa;
+                line-height: 1.5;
+            }
+            .timeline-fts li i {
+                color: #fff;
+                font-size: 0.45rem;
+                margin-top: 0.45rem;
+                flex-shrink: 0;
+            }
+            .timeline-desc {
+                font-size: 0.88rem;
+                color: #a1a1aa;
+                line-height: 1.7;
+            }
+
+            /* ===== ACHIEVEMENTS ===== */
+            .achievements-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                gap: 0.85rem;
+            }
+            .ach-card {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem 1.25rem;
+                border-radius: 16px;
+                background: #111111;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            }
+            .ach-card:hover {
+                background: #1a1a1a;
+                transform: translateY(-3px);
+                border-color: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            }
+            .ach-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 10px;
+                background: rgba(255, 255, 255, 0.06);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.9rem;
+                color: #fff;
+                flex-shrink: 0;
+                transition: all 0.3s ease;
+            }
+            .ach-card:hover .ach-icon {
+                background: rgba(255, 255, 255, 0.12);
+            }
+            .ach-title {
+                font-size: 0.85rem;
+                font-weight: 600;
+                margin-bottom: 0.05rem;
+            }
+            .ach-desc {
+                font-size: 0.72rem;
+                color: #a1a1aa;
+            }
+
+            /* ===== EDUCATION ===== */
+            .edu-section {
+                display: flex;
+                justify-content: center;
+            }
+            .edu-card {
+                max-width: 500px;
+                width: 100%;
+                padding: 2.5rem;
+                text-align: center;
+            }
+            .edu-icon {
+                width: 56px;
+                height: 56px;
+                border-radius: 16px;
+                background: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.3rem;
+                color: #fff;
+                margin: 0 auto 1.25rem;
+                box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+            }
+            .edu-degree {
+                font-size: 1.15rem;
+                font-weight: 700;
+                margin-bottom: 0.4rem;
+            }
+            .edu-school {
+                font-size: 0.88rem;
+                color: #a1a1aa;
+                margin-bottom: 0.15rem;
+            }
+            .edu-year {
+                font-size: 0.75rem;
+                color: #a1a1aa;
+                margin-bottom: 0.85rem;
+                opacity: 0.7;
+            }
+            .edu-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+                padding: 0.35rem 1rem;
+                border-radius: 100px;
+                font-size: 0.78rem;
+                font-weight: 600;
+                background: rgba(255, 255, 255, 0.06);
+                color: #fff;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            /* ===== TESTIMONIALS MARQUEE ===== */
+            .testimonials-section {
+                overflow: hidden;
+                padding: 1rem 0;
+            }
+            .testimonials-section::before,
+            .testimonials-section::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 80px;
+                z-index: 3;
+                pointer-events: none;
+            }
+            .testimonials-section::before {
+                left: 0;
+                background: linear-gradient(90deg, #0a0a0a, transparent);
+            }
+            .testimonials-section::after {
+                right: 0;
+                background: linear-gradient(90deg, transparent, #0a0a0a);
+            }
+            .marquee-row {
+                display: flex;
+                gap: 1.25rem;
+                width: max-content;
+                margin-bottom: 1.25rem;
+            }
+            .marquee-row:last-child {
+                margin-bottom: 0;
+            }
+            .marquee-row .marquee-inner {
+                display: flex;
+                gap: 1.25rem;
+                animation: marqueeScroll 40s linear infinite;
+            }
+            .marquee-row:nth-child(2) .marquee-inner {
+                animation-direction: reverse;
+                animation-duration: 35s;
+            }
+            .marquee-row:hover .marquee-inner {
+                animation-play-state: paused;
+            }
+            @keyframes marqueeScroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+            .testimonial-card {
+                width: 340px;
+                flex-shrink: 0;
+                padding: 1.5rem;
+                border-radius: 20px;
+                background: rgba(17, 17, 17, 0.7);
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                border: 1px solid rgba(255, 255, 255, 0.06);
+                transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            }
+            .testimonial-card:hover {
+                transform: translateY(-4px);
+                border-color: rgba(255, 255, 255, 0.12);
+                box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+            }
+            .testimonial-card .stars {
+                color: #f59e0b;
+                font-size: 0.7rem;
+                letter-spacing: 2px;
+                margin-bottom: 0.6rem;
+            }
+            .testimonial-card blockquote {
+                font-size: 0.85rem;
+                color: #a1a1aa;
+                line-height: 1.7;
+                margin-bottom: 0.85rem;
+                font-style: italic;
+            }
+            .testimonial-card footer {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+            .testimonial-card footer .avatar {
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                background: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.65rem;
+                color: #fff;
+                font-weight: 600;
+            }
+            .testimonial-card footer .name {
+                font-size: 0.8rem;
+                font-weight: 600;
+            }
+            .testimonial-card footer .role {
+                font-size: 0.65rem;
+                color: #a1a1aa;
+            }
+
+            /* ===== CONTACT ===== */
+            .contact-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+            .contact-left {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .contact-headline {
+                font-size: clamp(1.5rem, 2.5vw, 32px);
+                font-weight: 700;
+                letter-spacing: -1px;
+                line-height: 1.2;
+                margin-bottom: 0.5rem;
+            }
+            .contact-headline em {
+                font-style: normal;
+                color: #fff;
+            }
+            .contact-link {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem 1.25rem;
+                border-radius: 14px;
+                background: #111111;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                text-decoration: none;
+                color: #fff;
+                transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            }
+            .contact-link:hover {
+                border-color: rgba(255, 255, 255, 0.15);
+                background: #1a1a1a;
+                transform: translateX(6px);
+            }
+            .contact-link-icon {
+                width: 42px;
+                height: 42px;
+                border-radius: 10px;
+                background: rgba(255, 255, 255, 0.06);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                flex-shrink: 0;
+                font-size: 0.9rem;
+            }
+            .contact-link-label {
+                font-size: 0.65rem;
+                color: #a1a1aa;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+            .contact-link-val {
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+            .contact-form {
+                padding: 2rem;
+                border-radius: 24px;
+            }
+            .form-group {
+                margin-bottom: 1.25rem;
+            }
+            .form-group:last-child {
+                margin-bottom: 0;
+            }
+            .form-label {
+                display: block;
+                font-size: 0.75rem;
+                font-weight: 600;
+                color: #a1a1aa;
+                margin-bottom: 0.35rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+            .form-input,
+            .form-textarea {
+                width: 100%;
+                padding: 0.8rem 1rem;
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.06);
+                background: rgba(255, 255, 255, 0.02);
+                color: #fff;
+                font-family: inherit;
+                font-size: 0.9rem;
+                transition: all 0.3s ease;
+                outline: none;
+            }
+            .form-input:focus,
+            .form-textarea:focus {
+                border-color: rgba(255, 255, 255, 0.3);
+                box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.04);
+                background: rgba(255, 255, 255, 0.015);
+            }
+            .form-textarea {
+                resize: vertical;
+                min-height: 110px;
+            }
+            .form-submit {
+                width: 100%;
+                padding: 0.9rem;
+                border-radius: 10px;
+                border: none;
+                background: #fff;
+                color: #0a0a0a;
+                font-size: 0.9rem;
+                font-weight: 600;
+                transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+                font-family: inherit;
+                min-height: 48px;
+            }
+            .form-submit:hover {
+                background: #e8e8e8;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25);
+            }
+
+            /* ===== FOOTER ===== */
+            footer {
+                text-align: center;
+                padding: 3rem 2rem 2rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+                position: relative;
+                z-index: 2;
+            }
+            footer p {
+                color: #a1a1aa;
+                font-size: 0.8rem;
+            }
+            footer .links {
+                display: flex;
+                gap: 0.6rem;
+                justify-content: center;
+                margin-bottom: 0.75rem;
+            }
+            footer .icon-btn {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.06);
+                color: #a1a1aa;
+                text-decoration: none;
+                font-size: 0.9rem;
+                transition: all 0.3s ease;
+                background: #111111;
+            }
+            footer .icon-btn:hover {
+                color: #fff;
+                border-color: rgba(255, 255, 255, 0.2);
+                transform: translateY(-3px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            }
+
+            /* ===== RESPONSIVE ===== */
+            @media (max-width: 1024px) {
+                .hero-content {
+                    grid-template-columns: 1fr;
+                    text-align: center;
+                    gap: 2rem;
+                }
+                .hero-desc {
+                    margin: 0 auto 2rem;
+                }
+                .hero-actions {
+                    justify-content: center;
+                }
+                .hero-image-wrap {
+                    width: 260px;
+                    height: 260px;
+                }
+                .hero-image-glow {
+                    width: 340px;
+                    height: 340px;
+                }
+                .flip-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .flip-card {
+                    height: 340px;
+                }
+                .contact-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+            @media (max-width: 768px) {
+                section {
+                    padding: 5rem 0;
+                }
+                .hero-title {
+                    font-size: clamp(2rem, 10vw, 56px);
+                }
+                .bento-grid {
+                    grid-template-columns: 1fr;
+                }
+                .stats-inner {
+                    gap: 0.5rem;
+                }
+                .stat-num {
+                    font-size: 1.6rem;
+                }
+                .skills-grid {
+                    grid-template-columns: repeat(
+                        auto-fill,
+                        minmax(180px, 1fr)
+                    );
+                }
+                .achievements-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+            @media (max-width: 480px) {
+                .container {
+                    padding: 0 1.25rem;
+                }
+                .hero-image-wrap {
+                    width: 200px;
+                    height: 200px;
+                }
+                .hero-image-glow {
+                    width: 280px;
+                    height: 280px;
+                }
+                .hero-actions {
+                    flex-direction: column;
+                    align-items: stretch;
+                }
+                .hero-actions .btn {
+                    justify-content: center;
+                }
+                .stats-inner {
+                    grid-template-columns: 1fr;
+                }
+                .achievements-grid {
+                    grid-template-columns: 1fr;
+                }
+                .testimonial-card {
+                    width: 280px;
+                }
+                .flip-grid {
+                    grid-template-columns: 1fr;
+                }
+                .flip-card {
+                    height: 320px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="cursorGlow"></div>
+
+        <div id="meshBg">
+            <div class="mesh-orb"></div>
+            <div class="mesh-orb"></div>
+            <div class="mesh-orb"></div>
+        </div>
+
+        <canvas id="particles"></canvas>
+        <div id="noise"></div>
+
+        <!-- ===== HERO ===== -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <div class="hero-badge">
+                        <span class="dot"></span> Open to opportunities
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="grad">Nitheesh Kumar S</span>
+                    </h1>
+                    <div class="hero-role-wrap">
+                        <div class="hero-role" id="typingRole"></div>
+                    </div>
+                    <p class="hero-desc">
+                        Building secure and intelligent systems with modern web
+                        technologies &mdash; turning complex problems into
+                        elegant, performant solutions.
+                    </p>
+                    <div class="hero-actions">
+                        <a
+                            href="#projects"
+                            class="btn btn-primary"
+                            data-magnetic
+                            ><i class="fas fa-arrow-right"></i> View Projects</a
+                        >
+                        <a
+                            href="#contact"
+                            class="btn btn-secondary"
+                            data-magnetic
+                            ><i class="fas fa-envelope"></i> Get in touch</a
+                        >
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="hero-image-wrap" id="heroImageWrap">
+                        <div class="hero-image-glow" id="heroGlow"></div>
+                        <div class="hero-image-ring"></div>
+                        <div class="hero-image-frame">
+                            <img src="image.jpeg" alt="Nitheesh Kumar S" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator" id="scrollIndicator">
+                <span class="scroll-text">Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- ===== ABOUT ===== -->
+        <section id="about">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-marker"><span></span> About</div>
+                    <h2 class="section-title">Know <em>Who I Am</em></h2>
+                    <p class="section-sub">
+                        A brief introduction about my journey and passion for
+                        technology.
+                    </p>
+                </div>
+                <div class="bento-grid">
+                    <div class="bento-left">
+                        <div class="bento-card story reveal reveal-d1">
+                            <div class="card-label">Personal Story</div>
+                            <p class="story-text">
+                                <strong>Motivated UI/UX Designer</strong>
+                                passionate about designing seamless and
+                                meaningful digital experiences that solve
+                                real-world problems.
+                            </p>
+                            <p class="story-text">
+                                Combining creativity with
+                                <strong>user-centered thinking,</strong>
+                                I focus on creating intuitive interfaces,
+                                engaging interactions, and visually compelling
+                                designs that enhance usability and user
+                                satisfaction.
+                            </p>
+                            <p class="story-text">
+                                Always learning, experimenting, and refining my
+                                craft to build products that are both beautiful
+                                and functional.
+                            </p>
+                        </div>
+                        <div class="bento-card stats-row reveal reveal-d2">
+                            <div class="card-label">By the Numbers</div>
+                            <div class="stats-inner">
+                                <div class="stat-item">
+                                    <div class="stat-num">
+                                        <span class="count-num" data-target="3"
+                                            >0</span
+                                        >+
+                                    </div>
+                                    <div class="stat-label">Projects</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-num">
+                                        <span class="count-num" data-target="5"
+                                            >0</span
+                                        >+
+                                    </div>
+                                    <div class="stat-label">Technologies</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-num">
+                                        <span class="count-num" data-target="7"
+                                            >0</span
+                                        >+
+                                    </div>
+                                    <div class="stat-label">Certifications</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-right">
+                        <div
+                            class="bento-card reveal reveal-d3"
+                            style="flex: 1"
+                        >
+                            <div class="card-label">Core Competencies</div>
+                            <div class="skills-mini">
+                                <span>Full-Stack Development</span>
+                                <span>AI/ML</span>
+                                <span>Problem Solving</span>
+                                <span>Clean Code</span>
+                                <span>Cybersecurity</span>
+                                <span>UI/UX Design</span>
+                            </div>
+                        </div>
+                        <div class="bento-card reveal reveal-d4">
+                            <div class="card-label">Design Philosophy</div>
+                            <div class="bento-extra">
+                                <i class="fas fa-bolt"></i>
+                                <p>
+                                    I believe in building systems that are not
+                                    only functional but also intuitive, secure,
+                                    and a pleasure to use. Every line of code
+                                    should serve a purpose.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SKILLS ===== -->
+        <section id="skills">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-marker"><span></span> Skills</div>
+                    <h2 class="section-title">My <em>Tech Stack</em></h2>
+                    <p class="section-sub">
+                        Technologies and tools I use to bring ideas to life.
+                    </p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-card reveal reveal-d1">
+                        <div class="skill-category">Frontend</div>
+                        <div class="skill-item">
+                            <div class="skill-head">
+                                <span class="skill-name">React</span
+                                ><span class="skill-pct">90%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-w="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-head">
+                                <span class="skill-name">HTML/CSS/JS</span
+                                ><span class="skill-pct">92%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-w="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-head">
+                                <span class="skill-name">Tailwind CSS</span
+                                ><span class="skill-pct">88%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-w="88"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-card reveal reveal-d2">
+                        <div class="skill-category">Backend</div>
+                        <div class="skill-item">
+                            <div class="skill-head">
+                                <span class="skill-name">Node.js / Express</span
+                                ><span class="skill-pct">85%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-w="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-head">
+                                <span class="skill-name">Java</span
+                                ><span class="skill-pct">82%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-w="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-head">
+                                <span class="skill-name">Python</span
+                                ><span class="skill-pct">78%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-w="78"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-card reveal reveal-d3">
+                        <div class="skill-category">UI &amp; UX</div>
+                        <div class="skill-item">
+                            <div class="skill-head">
+                                <span class="skill-name">Figma</span
+                                ><span class="skill-pct">90%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-w="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-head">
+                                <span class="skill-name"
+                                    >Wireframing / Prototyping</span
+                                ><span class="skill-pct">88%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-w="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-head">
+                                <span class="skill-name"
+                                    >User Research / Testing</span
+                                ><span class="skill-pct">82%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-w="82"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-card reveal reveal-d4">
+                        <div class="skill-category">Tools &amp; Platforms</div>
+                        <div class="skill-item">
+                            <div class="skill-head">
+                                <span class="skill-name">Git / GitHub</span
+                                ><span class="skill-pct">90%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-w="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-head">
+                                <span class="skill-name">Firebase</span
+                                ><span class="skill-pct">75%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-w="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-head">
+                                <span class="skill-name">REST APIs</span
+                                ><span class="skill-pct">85%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-w="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS ===== -->
+        <section id="projects">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-marker"><span></span> Projects</div>
+                    <h2 class="section-title">Featured <em>Work</em></h2>
+                    <p class="section-sub">
+                        Real-world projects I've designed and built from the
+                        ground up.
+                    </p>
+                </div>
+
+                <div class="flip-grid">
+                    <div class="flip-card reveal reveal-d1">
+                        <div class="flip-card-inner">
+                            <div
+                                class="flip-front"
+                                style="
+                                    background:
+                                        linear-gradient(
+                                            135deg,
+                                            rgba(0, 0, 0, 0.55),
+                                            rgba(0, 0, 0, 0.3)
+                                        ),
+                                        url(&quot;https://envii.co.uk/cdn/shop/files/1285.jpg?v=1740500632&width=1500&quot;)
+                                            center/cover;
+                                "
+                            >
+                                <i class="fas fa-seedling flip-icon"></i>
+                                <div class="flip-cat">Full Stack &bull; AI</div>
+                                <div class="flip-title">
+                                    Crop Disease Detection System
+                                </div>
+                                <div class="flip-hint">Hover to explore</div>
+                            </div>
+                            <div class="flip-back">
+                                <div>
+                                    <div class="flip-cat">
+                                        Full Stack &bull; AI
+                                    </div>
+                                    <div class="flip-title">
+                                        Crop Disease Detection System
+                                    </div>
+                                    <div class="flip-desc">
+                                        AI-powered web application for detecting
+                                        crop diseases through image analysis,
+                                        with real-time diagnostics, NDVI health
+                                        analysis, and PDF report generation.
+                                    </div>
+                                    <div class="flip-stack">
+                                        <span>React</span><span>Tailwind</span
+                                        ><span>Node.js</span><span>Express</span
+                                        ><span>MongoDB</span>
+                                    </div>
+                                </div>
+                                <div class="flip-actions">
+                                    <a
+                                        href="https://github.com/nnitheesh863-maker"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="btn btn-primary"
+                                        data-magnetic
+                                        ><i class="fab fa-github"></i> Source</a
+                                    >
+                                    <a
+                                        href="#"
+                                        class="btn btn-secondary"
+                                        data-magnetic
+                                        ><i
+                                            class="fas fa-external-link-alt"
+                                        ></i>
+                                        Live</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card reveal reveal-d3">
+                        <div class="flip-card-inner">
+                            <div
+                                class="flip-front"
+                                style="
+                                    background:
+                                        linear-gradient(
+                                            135deg,
+                                            rgba(0, 0, 0, 0.55),
+                                            rgba(0, 0, 0, 0.3)
+                                        ),
+                                        url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuivd8QIQ88bACJxgDSs0BNPipd-0l1dKBdg&s&quot;)
+                                            center/cover;
+                                "
+                            >
+                                <i class="fas fa-university flip-icon"></i>
+                                <div class="flip-cat">
+                                    Full Stack &bull; System Design
+                                </div>
+                                <div class="flip-title">
+                                    College Management System
+                                </div>
+                                <div class="flip-hint">Hover to explore</div>
+                            </div>
+                            <div class="flip-back">
+                                <div>
+                                    <div class="flip-cat">
+                                        Full Stack &bull; System Design
+                                    </div>
+                                    <div class="flip-title">
+                                        College Management System
+                                    </div>
+                                    <div class="flip-desc">
+                                        Comprehensive management platform for
+                                        student and faculty administration with
+                                        automated attendance, exam scheduling,
+                                        and role-based dashboards.
+                                    </div>
+                                    <div class="flip-stack">
+                                        <span>Java</span><span>Node.js</span
+                                        ><span>MongoDB</span
+                                        ><span>Full Stack</span>
+                                    </div>
+                                </div>
+                                <div class="flip-actions">
+                                    <a
+                                        href="https://github.com/nnitheesh863-maker"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="btn btn-secondary"
+                                        data-magnetic
+                                        ><i class="fab fa-github"></i> Source</a
+                                    >
+                                    <a
+                                        href="#"
+                                        class="btn btn-secondary"
+                                        data-magnetic
+                                        ><i
+                                            class="fas fa-external-link-alt"
+                                        ></i>
+                                        Live</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card reveal reveal-d5">
+                        <div class="flip-card-inner">
+                            <div
+                                class="flip-front"
+                                style="
+                                    background:
+                                        linear-gradient(
+                                            135deg,
+                                            rgba(0, 0, 0, 0.55),
+                                            rgba(0, 0, 0, 0.3)
+                                        ),
+                                        url(&quot;https://assets.hackquest.io/hackathons/projects/logo/eVeMTi4XXX1h3P-ARaIcs.png&quot;)
+                                            center/cover;
+                                "
+                            >
+                                <i class="fas fa-shield-alt flip-icon"></i>
+                                <div class="flip-cat">
+                                    Security &bull; Cybersecurity
+                                </div>
+                                <div class="flip-title">Phish Guard</div>
+                                <div class="flip-hint">Hover to explore</div>
+                            </div>
+                            <div class="flip-back">
+                                <div>
+                                    <div class="flip-cat">
+                                        Security &bull; Cybersecurity
+                                    </div>
+                                    <div class="flip-title">Phish Guard</div>
+                                    <div class="flip-desc">
+                                        Advanced phishing detection system that
+                                        analyzes URL patterns and malicious
+                                        indicators, providing real-time warnings
+                                        to protect users from cyber threats.
+                                    </div>
+                                    <div class="flip-stack">
+                                        <span>Java</span><span>Node.js</span
+                                        ><span>MongoDB</span
+                                        ><span>Security</span>
+                                    </div>
+                                </div>
+                                <div class="flip-actions">
+                                    <a
+                                        href="https://github.com/nnitheesh863-maker"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="btn btn-secondary"
+                                        data-magnetic
+                                        ><i class="fab fa-github"></i> Source</a
+                                    >
+                                    <a
+                                        href="#"
+                                        class="btn btn-secondary"
+                                        data-magnetic
+                                        ><i
+                                            class="fas fa-external-link-alt"
+                                        ></i>
+                                        Live</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EXPERIENCE ===== -->
+        <section id="experience">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-marker"><span></span> Experience</div>
+                    <h2 class="section-title">Professional <em>Journey</em></h2>
+                    <p class="section-sub">
+                        My path through internships, projects, and professional
+                        growth.
+                    </p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-track" id="timelineTrack"></div>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-date">Recent</div>
+                            <div class="timeline-role">
+                                Web Development Intern
+                            </div>
+                            <div class="timeline-org">Zaalima Development</div>
+                            <ul class="timeline-fts">
+                                <li>
+                                    <i class="fas fa-circle"></i> Developed
+                                    responsive full-stack web applications
+                                </li>
+                                <li>
+                                    <i class="fas fa-circle"></i> Improved UI
+                                    performance and system speed
+                                </li>
+                                <li>
+                                    <i class="fas fa-circle"></i> Collaborated
+                                    on feature development and debugging
+                                </li>
+                                <li>
+                                    <i class="fas fa-circle"></i> Gained
+                                    production-level project experience
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-date">
+                                Jan 2026 &ndash; Mar 2026
+                            </div>
+                            <div class="timeline-role">Project Developer</div>
+                            <div class="timeline-org">Phish Guard Project</div>
+                            <div class="timeline-desc">
+                                Led development of a phishing detection system,
+                                implementing security checks and improving
+                                detection accuracy through rigorous testing and
+                                iterative refinement.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ACHIEVEMENTS ===== -->
+        <section id="achievements">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-marker"><span></span> Achievements</div>
+                    <h2 class="section-title">
+                        Awards &amp; <em>Recognition</em>
+                    </h2>
+                </div>
+                <div class="achievements-grid reveal">
+                    <div class="ach-card">
+                        <div class="ach-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div>
+                            <h4 class="ach-title">Hackathon Finalist</h4>
+                            <p class="ach-desc">2026</p>
+                        </div>
+                    </div>
+                    <div class="ach-card">
+                        <div class="ach-icon">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <div>
+                            <h4 class="ach-title">
+                                Ethical Hacking Certification
+                            </h4>
+                            <p class="ach-desc">
+                                Security &amp; Penetration Testing
+                            </p>
+                        </div>
+                    </div>
+                    <div class="ach-card">
+                        <div class="ach-icon">
+                            <i class="fab fa-hackerrank"></i>
+                        </div>
+                        <div>
+                            <h4 class="ach-title">HackerRank Certified</h4>
+                            <p class="ach-desc">Java &amp; Problem Solving</p>
+                        </div>
+                    </div>
+                    <div class="ach-card">
+                        <div class="ach-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div>
+                            <h4 class="ach-title">Deloitte Data Analyst</h4>
+                            <p class="ach-desc">Professional Training</p>
+                        </div>
+                    </div>
+                    <div class="ach-card">
+                        <div class="ach-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div>
+                            <h4 class="ach-title">AIWS Startathon</h4>
+                            <p class="ach-desc">
+                                Innovation &amp; Entrepreneurship
+                            </p>
+                        </div>
+                    </div>
+                    <div class="ach-card">
+                        <div class="ach-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div>
+                            <h4 class="ach-title">Women's Startup Hackathon</h4>
+                            <p class="ach-desc">Participant</p>
+                        </div>
+                    </div>
+                    <div class="ach-card">
+                        <div class="ach-icon"><i class="fas fa-award"></i></div>
+                        <div>
+                            <h4 class="ach-title">Asia Book of Records</h4>
+                            <p class="ach-desc">Certification</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EDUCATION ===== -->
+        <section id="education">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-marker"><span></span> Education</div>
+                    <h2 class="section-title">Academic <em>Background</em></h2>
+                </div>
+                <div class="edu-section reveal">
+                    <div class="card edu-card">
+                        <div class="edu-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="edu-degree">
+                            B.Sc Computer Science with Data Analytics
+                        </h3>
+                        <p class="edu-school">
+                            KPR College of Arts and Science, Coimbatore
+                        </p>
+                        <p class="edu-year">2024 &ndash; 2027</p>
+                        <span class="edu-badge"
+                            ><i
+                                class="fas fa-star"
+                                style="font-size: 0.55rem"
+                            ></i>
+                            CGPA: 7.2</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TESTIMONIALS ===== -->
+        <section id="testimonials">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-marker"><span></span> Testimonials</div>
+                    <h2 class="section-title">What People <em>Say</em></h2>
+                </div>
+            </div>
+            <div class="testimonials-section reveal" style="position: relative">
+                <div class="marquee-row">
+                    <div class="marquee-inner">
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "Exceptional problem solver with a keen eye for
+                                clean code and modern design. Delivers quality
+                                work consistently."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">AK</div>
+                                <div>
+                                    <div class="name">Aravind Kumar</div>
+                                    <div class="role">
+                                        Team Lead, Zaalima Dev
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "Nitheesh brings a rare combination of technical
+                                depth and creative thinking. A true asset to any
+                                engineering team."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">SP</div>
+                                <div>
+                                    <div class="name">Sneha Patel</div>
+                                    <div class="role">Project Mentor</div>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "His work on the crop disease detection system
+                                was outstanding &mdash; well-architected,
+                                thoroughly tested, and beautifully designed."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">RM</div>
+                                <div>
+                                    <div class="name">Rahul Mehta</div>
+                                    <div class="role">AI Research Intern</div>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "A fast learner who adapts to new technologies
+                                quickly. His contributions to our hackathon
+                                project were invaluable."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">PJ</div>
+                                <div>
+                                    <div class="name">Priya Jain</div>
+                                    <div class="role">Hackathon Teammate</div>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "Exceptional problem solver with a keen eye for
+                                clean code and modern design. Delivers quality
+                                work consistently."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">AK</div>
+                                <div>
+                                    <div class="name">Aravind Kumar</div>
+                                    <div class="role">
+                                        Team Lead, Zaalima Dev
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "Nitheesh brings a rare combination of technical
+                                depth and creative thinking. A true asset to any
+                                engineering team."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">SP</div>
+                                <div>
+                                    <div class="name">Sneha Patel</div>
+                                    <div class="role">Project Mentor</div>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "His work on the crop disease detection system
+                                was outstanding &mdash; well-architected,
+                                thoroughly tested, and beautifully designed."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">RM</div>
+                                <div>
+                                    <div class="name">Rahul Mehta</div>
+                                    <div class="role">AI Research Intern</div>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "A fast learner who adapts to new technologies
+                                quickly. His contributions to our hackathon
+                                project were invaluable."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">PJ</div>
+                                <div>
+                                    <div class="name">Priya Jain</div>
+                                    <div class="role">Hackathon Teammate</div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="marquee-row">
+                    <div class="marquee-inner">
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "A fast learner who adapts to new technologies
+                                quickly. His contributions to our hackathon
+                                project were invaluable."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">PJ</div>
+                                <div>
+                                    <div class="name">Priya Jain</div>
+                                    <div class="role">Hackathon Teammate</div>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "His work on the crop disease detection system
+                                was outstanding &mdash; well-architected,
+                                thoroughly tested, and beautifully designed."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">RM</div>
+                                <div>
+                                    <div class="name">Rahul Mehta</div>
+                                    <div class="role">AI Research Intern</div>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "Nitheesh brings a rare combination of technical
+                                depth and creative thinking. A true asset to any
+                                engineering team."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">SP</div>
+                                <div>
+                                    <div class="name">Sneha Patel</div>
+                                    <div class="role">Project Mentor</div>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "Exceptional problem solver with a keen eye for
+                                clean code and modern design. Delivers quality
+                                work consistently."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">AK</div>
+                                <div>
+                                    <div class="name">Aravind Kumar</div>
+                                    <div class="role">
+                                        Team Lead, Zaalima Dev
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "A fast learner who adapts to new technologies
+                                quickly. His contributions to our hackathon
+                                project were invaluable."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">PJ</div>
+                                <div>
+                                    <div class="name">Priya Jain</div>
+                                    <div class="role">Hackathon Teammate</div>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "His work on the crop disease detection system
+                                was outstanding &mdash; well-architected,
+                                thoroughly tested, and beautifully designed."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">RM</div>
+                                <div>
+                                    <div class="name">Rahul Mehta</div>
+                                    <div class="role">AI Research Intern</div>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "Nitheesh brings a rare combination of technical
+                                depth and creative thinking. A true asset to any
+                                engineering team."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">SP</div>
+                                <div>
+                                    <div class="name">Sneha Patel</div>
+                                    <div class="role">Project Mentor</div>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i
+                                ><i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "Exceptional problem solver with a keen eye for
+                                clean code and modern design. Delivers quality
+                                work consistently."
+                            </blockquote>
+                            <footer>
+                                <div class="avatar">AK</div>
+                                <div>
+                                    <div class="name">Aravind Kumar</div>
+                                    <div class="role">
+                                        Team Lead, Zaalima Dev
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT ===== -->
+        <section id="contact">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-marker"><span></span> Contact</div>
+                    <h2 class="section-title">Get In <em>Touch</em></h2>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-left reveal">
+                        <h3 class="contact-headline">
+                            Let's create something <em>exceptional</em>
+                        </h3>
+                        <p
+                            style="
+                                color: #a1a1aa;
+                                font-size: 16px;
+                                line-height: 1.6;
+                                margin-bottom: 0.5rem;
+                            "
+                        >
+                            Have a project in mind? Let's build something great
+                            together.
+                        </p>
+                        <a href="tel:8248769464" class="contact-link"
+                            ><div class="contact-link-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <div class="contact-link-label">Phone</div>
+                                <div class="contact-link-val">8248769464</div>
+                            </div></a
+                        >
+                        <a
+                            href="mailto:nnitheesh863@gmail.com"
+                            class="contact-link"
+                            ><div class="contact-link-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="contact-link-label">Email</div>
+                                <div class="contact-link-val">
+                                    nnitheesh863@gmail.com
+                                </div>
+                            </div></a
+                        >
+                        <a
+                            href="https://github.com/nnitheesh863-maker"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-link"
+                            ><div class="contact-link-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <div class="contact-link-label">GitHub</div>
+                                <div class="contact-link-val">
+                                    nnitheesh863-maker
+                                </div>
+                            </div></a
+                        >
+                        <a
+                            href="https://www.linkedin.com/in/nitheeshkumar-dev/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-link"
+                            ><div class="contact-link-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div>
+                                <div class="contact-link-label">LinkedIn</div>
+                                <div class="contact-link-val">
+                                    Nitheesh Kumar S
+                                </div>
+                            </div></a
+                        >
+                    </div>
+                    <div class="card contact-form reveal">
+                        <form id="contactForm" onsubmit="return false;">
+                            <div class="form-group">
+                                <label class="form-label" for="name"
+                                    >Your Name</label
+                                ><input
+                                    type="text"
+                                    id="name"
+                                    class="form-input"
+                                    placeholder="John Doe"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email"
+                                    >Your Email</label
+                                ><input
+                                    type="email"
+                                    id="email"
+                                    class="form-input"
+                                    placeholder="john@example.com"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="message"
+                                    >Message</label
+                                ><textarea
+                                    id="message"
+                                    class="form-textarea"
+                                    placeholder="Tell me about your project..."
+                                    required
+                                ></textarea>
+                            </div>
+                            <button
+                                type="button"
+                                class="form-submit"
+                                id="formSubmit"
+                                data-magnetic
+                            >
+                                <i class="fas fa-paper-plane"></i>&nbsp; Send
+                                Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="links">
+                <a href="tel:8248769464" class="icon-btn"
+                    ><i class="fas fa-phone"></i
+                ></a>
+                <a href="mailto:nnitheesh863@gmail.com" class="icon-btn"
+                    ><i class="fas fa-envelope"></i
+                ></a>
+                <a
+                    href="https://github.com/nnitheesh863-maker"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="icon-btn"
+                    ><i class="fab fa-github"></i
+                ></a>
+                <a
+                    href="https://www.linkedin.com/in/nitheeshkumar-dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="icon-btn"
+                    ><i class="fab fa-linkedin-in"></i
+                ></a>
+            </div>
+            <p>
+                &copy; 2026 Nitheesh Kumar S &mdash; Crafted with precision
+                &amp; purpose
+            </p>
+        </footer>
+
+        <script>
+            // === CURSOR GLOW ===
+            const glow = document.getElementById("cursorGlow");
+            let gx = -200,
+                gy = -200;
+            document.addEventListener("mousemove", (e) => {
+                gx = e.clientX;
+                gy = e.clientY;
+                glow.classList.add("visible");
+            });
+            document.addEventListener("mouseleave", () =>
+                glow.classList.remove("visible"),
+            );
+            function glowAnim() {
+                glow.style.left = gx + "px";
+                glow.style.top = gy + "px";
+                requestAnimationFrame(glowAnim);
+            }
+            glowAnim();
+
+            // === PARTICLES ===
+            const canvas = document.getElementById("particles"),
+                ctx = canvas.getContext("2d");
+            let pW,
+                pH,
+                particles = [];
+            function resizeP() {
+                pW = canvas.width = window.innerWidth;
+                pH = canvas.height = window.innerHeight;
+            }
+            window.addEventListener("resize", resizeP);
+            resizeP();
+            for (let i = 0; i < 80; i++) {
+                particles.push({
+                    x: Math.random() * pW,
+                    y: Math.random() * pH,
+                    dx: (Math.random() - 0.5) * 0.3,
+                    dy: (Math.random() - 0.5) * 0.3,
+                    r: 1,
+                });
+            }
+            function drawP() {
+                ctx.clearRect(0, 0, pW, pH);
+                particles.forEach((p) => {
+                    p.x += p.dx;
+                    p.y += p.dy;
+                    if (p.x < 0 || p.x > pW) p.dx *= -1;
+                    if (p.y < 0 || p.y > pH) p.dy *= -1;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = "rgba(255,255,255,.12)";
+                    ctx.fill();
+                });
+                requestAnimationFrame(drawP);
+            }
+            drawP();
+
+            // === HERO GLOW FOLLOW ===
+            const heroWrap = document.getElementById("heroImageWrap"),
+                heroGlow = document.getElementById("heroGlow");
+            heroWrap.addEventListener("mousemove", (e) => {
+                const r = heroWrap.getBoundingClientRect();
+                const x = ((e.clientX - r.left) / r.width - 0.5) * 30;
+                const y = ((e.clientY - r.top) / r.height - 0.5) * 30;
+                heroGlow.style.transform = `translate(calc(-50% + ${x}px),calc(-50% + ${y}px))`;
+            });
+
+            // === SCROLL INDICATOR HIDE ===
+            let siHidden = false;
+            window.addEventListener("scroll", () => {
+                if (!siHidden && window.scrollY > 100) {
+                    document.getElementById("scrollIndicator").style.opacity =
+                        "0";
+                    siHidden = true;
+                }
+            });
+
+            // === MAGNETIC BUTTONS ===
+            document.querySelectorAll("[data-magnetic]").forEach((el) => {
+                el.addEventListener("mousemove", (e) => {
+                    const r = el.getBoundingClientRect();
+                    const x = e.clientX - r.left - r.width / 2;
+                    const y = e.clientY - r.top - r.height / 2;
+                    el.style.transform = `translate3d(${x * 0.2}px,${y * 0.2}px,0)`;
+                });
+                el.addEventListener("mouseleave", () => {
+                    el.style.transform = "";
+                });
+            });
+
+            // === TYPING ===
+            const typingEl = document.getElementById("typingRole");
+            const roles = [
+                "Full Stack Developer",
+                "AI Engineer",
+                "Software Developer",
+                "Tech Innovator",
+            ];
+            let ri = 0,
+                ci = 0,
+                del = false;
+            function typeLoop() {
+                const cur = roles[ri];
+                if (!del) {
+                    ci++;
+                    typingEl.innerHTML =
+                        cur.substring(0, ci) +
+                        '<span class="cursor-accent">|</span>';
+                    if (ci === cur.length) {
+                        del = true;
+                        setTimeout(typeLoop, 2000);
+                        return;
+                    }
+                    setTimeout(typeLoop, 70);
+                } else {
+                    ci--;
+                    typingEl.innerHTML =
+                        cur.substring(0, ci) +
+                        '<span class="cursor-accent">|</span>';
+                    if (ci === 0) {
+                        del = false;
+                        ri = (ri + 1) % roles.length;
+                        setTimeout(typeLoop, 400);
+                        return;
+                    }
+                    setTimeout(typeLoop, 35);
+                }
+            }
+            setTimeout(typeLoop, 800);
+
+            // === SCROLL REVEAL ===
+            const revealObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((e) => {
+                        if (e.isIntersecting) {
+                            e.target.classList.add("visible");
+                            revealObserver.unobserve(e.target);
+                        }
+                    });
+                },
+                { threshold: 0.08, rootMargin: "0px 0px -50px 0px" },
+            );
+            document
+                .querySelectorAll(".reveal")
+                .forEach((el) => revealObserver.observe(el));
+
+            // === COUNTERS ===
+            const counterObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((e) => {
+                        if (e.isIntersecting) {
+                            const el = e.target;
+                            const target = parseInt(el.dataset.target);
+                            let cur = 0;
+                            const step = Math.ceil(target / 60);
+                            const timer = setInterval(() => {
+                                cur += step;
+                                if (cur >= target) {
+                                    cur = target;
+                                    clearInterval(timer);
+                                }
+                                el.textContent = cur;
+                            }, 25);
+                            counterObserver.unobserve(el);
+                        }
+                    });
+                },
+                { threshold: 0.5 },
+            );
+            document
+                .querySelectorAll(".count-num")
+                .forEach((el) => counterObserver.observe(el));
+
+            // === SKILL BARS ===
+            const skillObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((e) => {
+                        if (e.isIntersecting) {
+                            const fill = e.target;
+                            fill.style.setProperty("--w", fill.dataset.w + "%");
+                            fill.classList.add("animated");
+                            skillObserver.unobserve(fill);
+                        }
+                    });
+                },
+                { threshold: 0.3 },
+            );
+            document
+                .querySelectorAll(".skill-fill")
+                .forEach((el) => skillObserver.observe(el));
+
+            // === TIMELINE TRACK ===
+            const trackObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((e) => {
+                        if (e.isIntersecting) {
+                            document
+                                .getElementById("timelineTrack")
+                                .classList.add("visible");
+                            trackObserver.unobserve(e.target);
+                        }
+                    });
+                },
+                { threshold: 0.1 },
+            );
+            trackObserver.observe(document.getElementById("timelineTrack"));
+
+            // === SMOOTH SCROLL ===
+            document.querySelectorAll('a[href^="#"]').forEach((a) => {
+                a.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const t = document.querySelector(this.getAttribute("href"));
+                    if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+                });
+            });
+
+            // === CONTACT FORM ===
+            document
+                .getElementById("formSubmit")
+                .addEventListener("click", () => {
+                    const n = document.getElementById("name").value.trim();
+                    const e = document.getElementById("email").value.trim();
+                    const m = document.getElementById("message").value.trim();
+                    if (!n || !e || !m) {
+                        alert("Please fill all fields");
+                        return;
+                    }
+                    window.location.href =
+                        "mailto:nnitheesh863@gmail.com?subject=Portfolio Inquiry from " +
+                        encodeURIComponent(n) +
+                        "&body=" +
+                        encodeURIComponent(
+                            "Name: " +
+                                n +
+                                "\nEmail: " +
+                                e +
+                                "\n\nMessage:\n" +
+                                m,
+                        );
+                });
+        </script>
+    </body>
+</html>
